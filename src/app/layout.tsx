@@ -2,6 +2,7 @@ import { cn } from '@/lib/utils'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Providers from '@/providers/Providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,14 +18,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="light">
-      <body
-        className={cn(
-          'grainy min-h-screen font-sans antialiased',
-          inter.className
-        )}
-      >
-        {children}
-      </body>
+      <Providers>
+        <body
+          className={cn(
+            'grainy min-h-screen font-sans antialiased',
+            inter.className
+          )}
+        >
+          {children}
+        </body>
+      </Providers>
     </html>
   )
 }
